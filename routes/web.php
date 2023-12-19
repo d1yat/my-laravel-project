@@ -14,8 +14,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/welcome', [function () {
-    return view('welcome');
-}]);
+Route::get('/', function () {
+    return redirect('/home');
+});
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home/greeting/{person?}', [HomeController::class, 'greeting']);

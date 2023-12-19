@@ -40,4 +40,17 @@ class HomeController extends Controller
 
     	return view('home.index', ['pengantin' => $pengantin]);
     }
+
+    public function greeting($person = null)
+    {
+        $data = array(
+            'code' => 200,
+            'status' => 'success',
+            'data' => [
+                'message' => 'Welcome, ' . ($person ?? 'Stranger') . '!'
+            ]
+        );
+
+        return view('home.greeting', $data);
+    }
 }
